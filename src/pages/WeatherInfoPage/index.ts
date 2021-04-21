@@ -1,0 +1,1 @@
+export { WeatherInfoPage } from './WeatherInfoPage';
