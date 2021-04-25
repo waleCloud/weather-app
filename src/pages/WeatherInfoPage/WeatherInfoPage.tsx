@@ -1,22 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Container, CssBaseline, FormControlLabel, Radio, RadioGroup } from '@material-ui/core';
+import { Container, CircularProgress, CssBaseline, FormControlLabel, Radio, RadioGroup } from '@material-ui/core';
 import { WeatherCardWrapper } from '../../components/WeatherCardWrapper';
 import { BarChart } from '../../components/Charts';
+import { WeatherReportContext } from '../../context';
+import { useLoadWeather } from './hooks';
+
+const PageHandler = (props: any) => {
+  if (props.loading === true) {
+    return (
+      <> Fetching weather information <CircularProgress /> </>
+    )
+  } else if (props.error === true) {
+    return (
+      <p>
+      Opps! something went wrong, Please refresh the page, if the problem persists, do contact us weather(at)payonner.com
+      </p>
+    )
+  } else {
+    return <>{props.children}</>
+  }
+}
 
 export const WeatherInfoPage: React.FC = () => {
+  useLoadWeather();
+  const { state: { loading, error, degreeType } } = useContext(WeatherReportContext);
+  console.log({loading});
   return (
-    <>
+    <PageHandler loading={Boolean(loading)} error={error}>
      <CssBaseline />
       <Container>
-        <RadioGroup row aria-label="Degree" name="temperature-degree" defaultValue="celcius">
+        <RadioGroup row aria-label="Degree" name="temperature-degree" defaultValue={degreeType}>
           <FormControlLabel
-            value="celcius"
+            value="CELCIUS"
             control={<Radio color="primary" />}
             label="Celcius"
           />
           <FormControlLabel
-            value="fahrenheit"
+            value="FAHRENHEIT"
             control={<Radio color="primary" />}
             label="Fahrenheit"
           />
@@ -26,6 +47,6 @@ export const WeatherInfoPage: React.FC = () => {
           <BarChart />
         </div>
       </Container> 
-    </>
+    </PageHandler>
   );
 }
