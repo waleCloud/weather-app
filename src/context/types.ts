@@ -3,6 +3,7 @@ export interface State {
   error: boolean;
   degreeType: 'CELCIUS' | 'FAHRENHEIT';
   weather: Weather;
+  currentDay?: [];
 }
 
 export type Action = SetLoading | SetError | SetWeather;
@@ -29,13 +30,11 @@ export interface SetWeather {
 }
 
 export interface Weather {
-  reports: {
-    day: {
-      date: string;
-      time: string;
-      temp: string;
-      description: string;
-      descriptionTitle: string;
-    }[]
-  };
+  [date: string]: {
+    date: string;
+    time: string;
+    temp: string;
+    description: string;
+    descriptionTitle: string;
+  }[]
 }

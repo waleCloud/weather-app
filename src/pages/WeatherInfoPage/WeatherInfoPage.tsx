@@ -25,7 +25,6 @@ const PageHandler = (props: any) => {
 export const WeatherInfoPage: React.FC = () => {
   useLoadWeather();
   const { state: { loading, error, degreeType } } = useContext(WeatherReportContext);
-  console.log({loading});
   return (
     <PageHandler loading={Boolean(loading)} error={error}>
      <CssBaseline />

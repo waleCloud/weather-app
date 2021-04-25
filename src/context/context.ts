@@ -12,17 +12,15 @@ export const initialState: State = {
   error: false,
   degreeType: 'CELCIUS',
   weather: {
-    reports: {
-      day: [
-        {
-          date: '',
-          time: '',
-          temp: '',
-          description: '',
-          descriptionTitle: '',
-        }
-      ]
-    }
+    date: [
+      {
+        date: '',
+        time: '',
+        temp: '',
+        description: '',
+        descriptionTitle: '',
+      }
+    ]
   }
 }
 
