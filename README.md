@@ -1,7 +1,6 @@
 # Weather React Exercise
 
-[Test Badge]()
-[URL Link]()
+[Demo Link](https://walecloud.github.io/weather-app/)
 
 This project displays weather information up to 5 days forcast with a maximum of 8 reports per day.
 
