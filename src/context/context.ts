@@ -10,18 +10,19 @@ interface Context {
 export const initialState: State = {
   loading: true,
   error: false,
-  degreeType: 'CELCIUS',
+  degreeType: 'metric',
   weather: {
     date: [
       {
         date: '',
         time: '',
-        temp: '',
+        temp: 0,
         description: '',
         descriptionTitle: '',
       }
     ]
-  }
+  },
+  activeDay: []
 }
 
 export const WeatherReportContext = createContext<Context>({

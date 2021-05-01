@@ -21,6 +21,20 @@ export const reducer = (state: State, action: Action) => {
         weather: action.payload.weather,
       };
     }
+
+    case 'ACTIVE_DAY_SET': {
+      return {
+        ...state,
+        activeDay: action.payload.activeDay,
+      };
+    }
+
+    case 'DEGREE_SET': {
+      return {
+        ...state,
+        degreeType: action.payload.degreeType,
+      };
+    }
   
     default:
       return state;
