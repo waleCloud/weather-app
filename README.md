@@ -1,4 +1,5 @@
 # Weather React Exercise
+[![CI-CD-Pipeline](https://github.com/waleCloud/weather-app/actions/workflows/test.yml/badge.svg)](https://github.com/waleCloud/weather-app/actions/workflows/test.yml)
 
 [Demo Link](https://walecloud.github.io/weather-app/)
 
